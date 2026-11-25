@@ -1,0 +1,86 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 30,
+    "patch": 0
+  },
+
+  "configurePresets": [
+    {
+      "name": "msvc",
+      "displayName": "msvc configure preset",
+      "description": "MSVC configure preset",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+
+    {
+      "name": "gcc-make",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "EXPORT_COMPILE_COMMANDS": true,
+        "CMAKE_CXX_COMPILER": "gcc"
+      }
+    },
+
+    {
+      "name": "gcc-make-debug",
+      "inherits": "gcc-make",
+      "displayName": "GCC make debug configure preset",
+      "description": "GCC make debug configure preset",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+
+    {
+      "name": "gcc-make-release",
+      "inherits": "gcc-make",
+      "displayName": "GCC make release configure preset",
+      "description": "GCC make release configure preset",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+
+  "buildPresets": [
+    {
+      "name": "msvc-debug",
+      "displayName": "MSVC debug build preset",
+      "description": "MSVC debug build preset",
+      "configurePreset": "msvc",
+      "configuration": "Debug",
+      "verbose": true
+    },
+
+    {
+      "name": "msvc-release",
+      "displayName": "MSVC release build preset",
+      "description": "MSVC release build preset",
+      "configurePreset": "msvc",
+      "configuration": "Release"
+    },
+
+    {
+      "name": "gcc-make-debug-build",
+      "displayName": "GCC make debug build preset",
+      "description": "GCC make debug build preset",
+      "configurePreset": "gcc-make-debug",
+      "verbose": true,
+      "jobs": 10
+    },
+
+    {
+      "name": "gcc-make-release-build",
+      "displayName": "GCC make release build preset",
+      "description": "GCC make release build preset",
+      "configurePreset": "gcc-make-release",
+      "jobs": 10
+    }
+  ]
+}
