@@ -21,7 +21,7 @@
       "generator": "Unix Makefiles",
       "cacheVariables": {
         "EXPORT_COMPILE_COMMANDS": true,
-        "CMAKE_CXX_COMPILER": "gcc"
+        "CMAKE_CXX_COMPILER": "g++"
       }
     },
 
