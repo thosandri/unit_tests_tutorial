@@ -9,3 +9,6 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 include(settings)
 
 add_subdirectory(src)
+
+enable_testing()
+add_subdirectory(tests)

@@ -82,5 +82,27 @@
       "configurePreset": "gcc-make-release",
       "jobs": 10
     }
+  ],
+
+  "testPresets": [
+    {
+      "name": "unit-tests-ci-gcc-debug",
+      "displayName": "Unit tests CI GCC debug",
+      "configurePreset": "gcc-make-debug",
+      "output": {
+        "verbosity": "extra",
+        "outputOnFailure": true
+      }
+    },
+
+    {
+      "name": "unit-tests-ci-gcc-release",
+      "displayName": "Unit tests CI GCC release",
+      "configurePreset": "gcc-make-release",
+      "output": {
+        "verbosity": "extra",
+        "outputOnFailure": true
+      }
+    }
   ]
 }
