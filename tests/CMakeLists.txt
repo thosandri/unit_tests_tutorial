@@ -41,3 +41,4 @@ function (add_unit_test ut_name)
 endfunction()
 
 add_subdirectory(factorial_test)
+add_subdirectory(employees_management_lib_test)

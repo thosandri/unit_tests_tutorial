@@ -1,0 +1,19 @@
+add_unit_test(TEST_Employee
+	SOURCES
+		src/TEST_employee.cpp
+	DEPENDENCIES
+			compiler_flags
+			cxx_standard
+			GTest::gtest_main
+			employees_management
+)
+
+add_unit_test(TEST_EmployeeTable
+	SOURCES
+		src/TEST_employeeTable.cpp
+	DEPENDENCIES
+		compiler_flags
+		cxx_standard
+		GTest::gtest_main
+		employees_management
+)
