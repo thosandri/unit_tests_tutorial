@@ -11,10 +11,18 @@ on:
   workflow_dispatch:
  
 jobs:
-  build-debug:
+  build-and-test-debug:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Display tools version
+        run: |
+            g++ --version
+            clang --version
+            cmake --version
+            make --version
+            ninja --version
   
       - name: Configure
         run:
@@ -23,8 +31,12 @@ jobs:
       - name: Build
         run:
            cmake --build --preset gcc-make-debug-build
+      
+      - name: Launch unit tests in Debug
+        run:
+           ctest --preset unit-tests-ci-gcc-debug
 
-  build-release:
+  build-and-test-release:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -36,4 +48,8 @@ jobs:
       - name: Build
         run:
            cmake --build --preset gcc-make-release-build
+      
+      - name: Launch unit tests in Release
+        run:
+           ctest --preset unit-tests-ci-gcc-release
     
